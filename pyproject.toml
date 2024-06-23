@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "djpoe"
+version = "0.1.0"
+description = ""
+authors = ["Piotr Zalewa <zaloon@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+django = "^5.0.6"
+django-extensions = "^3.2.3"
+django-stubs-ext = "^5.0.2"
+django-types = "^0.19.1"
+
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.2.2"
+pytest-django = "^4.8.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
