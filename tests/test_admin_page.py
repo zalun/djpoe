@@ -24,7 +24,7 @@ def test_admin_redirect_if_not_superuseer(client: Client, django_user_model: Use
 
     assert response.status_code == 302
     assert response.content == b""
-    assert response.url == "/admin/login/?next=/admin/"
+    assert response.url == "/admin/login/?next=/admin/"  # type: ignore[attr-defined]
 
 
 @pytest.mark.django_db()
