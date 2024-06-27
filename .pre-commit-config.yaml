@@ -1,0 +1,21 @@
+fail_fast: true
+repos:
+  - repo: local
+    hooks:
+      - id: ruff
+        name: ruff
+        language: system
+        files: "^(?:djpoe|tests)/"
+        exclude: "migrations"
+        types: [python]
+        entry: poetry
+        args: ["run", "ruff", "check"]
+
+      - id: pylint
+        name: pylint
+        language: system
+        files: "^(?:djpoe|tests)/"
+        exclude: "migrations"
+        types: [python]
+        entry: poetry
+        args: ["run", "pylint", "-sn"]
