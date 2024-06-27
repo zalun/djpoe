@@ -1,5 +1,4 @@
-"""
-ASGI config for djpoe project.
+"""ASGI config for djpoe project.
 
 It exposes the ASGI callable as a module-level variable named ``application``.
 

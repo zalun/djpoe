@@ -1,5 +1,4 @@
-"""
-WSGI config for djpoe project.
+"""WSGI config for djpoe project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
