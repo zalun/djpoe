@@ -2,7 +2,7 @@ name: Linters
 
 on: [push, pull_request]
 jobs:
-  ruff:
+  run-linters:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout the code
@@ -13,10 +13,16 @@ jobs:
         with:
           python-version: 3.12
 
-      - name: Install Poetry and dependeencies
+      - name: Install Poetry and dependencies
         run: |
           pip install poetry
           poetry install
 
-      - name: Run Ruff
+      - name: Ruff
         run: poetry run ruff check
+
+      - name: Pylint
+        run: poetry run pylint djpoe/djpoe tests
+
+      - name: Mypy
+        run: poetry run mypy --install-types --check-untyped-defs --non-interactive ."
