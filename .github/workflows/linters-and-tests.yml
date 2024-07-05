@@ -49,4 +49,4 @@ jobs:
           poetry install
 
       - name: Pytest
-        run: pytest --showlocals --tb=auto -ra --cov-branch --cov-report=term-missing
+        run: poetry run pytest --showlocals --tb=auto -ra --cov-branch --cov-report=term-missing
