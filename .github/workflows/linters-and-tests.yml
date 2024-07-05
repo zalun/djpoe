@@ -17,6 +17,7 @@ jobs:
         run: |
           pip install poetry
           poetry install
+          mkdir .mypy_cache
 
       - name: Ruff
         run: poetry run ruff check
