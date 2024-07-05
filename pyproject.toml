@@ -98,6 +98,7 @@ docstring-code-line-length = "dynamic"
 max-line-length = 120
 disable = ["fixme", "too-many-arguments"]
 load-plugins = ["pylint_per_file_ignores", "pylint_django"]
+django-settings-module = "djpoe.settings"
 per-file-ignores = """
     /tests/:missing-function-docstring,assignment-from-no-return,not-context-manager,django-not-configured,imported-auth-user,missing-module-docstring
     /migrations/:invalid-name,missing-class-docstring,wrong-import-order

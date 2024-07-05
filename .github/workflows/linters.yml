@@ -25,4 +25,4 @@ jobs:
         run: poetry run pylint djpoe/djpoe tests
 
       - name: Mypy
-        run: poetry run mypy --install-types --check-untyped-defs --non-interactive ."
+        run: poetry run mypy --install-types --check-untyped-defs --non-interactive .
