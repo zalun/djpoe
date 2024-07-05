@@ -4,7 +4,7 @@ name: Linters and Tests
 
 on: [push, pull_request]
 jobs:
-  linters-and-tests:
+  lint-and-test:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout the code
@@ -24,8 +24,10 @@ jobs:
           python-version: 3.12
 
       - name: Install Poetry
+        uses: abatilo/actions-poetry@v2
+
+      - name: Configure Poetry
         run: |
-          pip install poetry
           poetry config virtualenvs.create true --local
           poetry config virtualenvs.in-project true --local
 
