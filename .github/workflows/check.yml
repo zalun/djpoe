@@ -30,3 +30,6 @@ jobs:
 
       - name: Mypy
         run: poetry run mypy --install-types --check-untyped-defs --non-interactive .
+
+      - name: Pytest
+        run: poetry run pytest --showlocals --tb=auto -ra --cov-branch --cov-report=term-missing
