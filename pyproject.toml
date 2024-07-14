@@ -113,6 +113,13 @@ mypy_path = "./djpoe"
 django_settings_module = "djpoe.settings"
 ignore_missing_model_attributes = true
 
+[tool.coverage.run]
+omit = [
+    # Omit asgi and wsgi files.
+    "djpoe/djpoe/asgi.py",
+    "djpoe/djpoe/wsgi.py",
+]
+
 [tool.poe.tasks.test]
 help = "Pytest with coverage."
 cmd = "pytest --showlocals --tb=auto -ra --cov-branch --cov-report=term-missing"
