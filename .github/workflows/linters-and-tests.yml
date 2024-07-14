@@ -10,10 +10,18 @@ jobs:
       - name: Checkout the code
         uses: actions/checkout@v4
 
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: 3.12
+          cache: poetry
+          cache-dependency-path: ~/virtualenvs
+
       - name: Install Poetry
         uses: snok/install-poetry@v1
         with:
-          virtualenvs-path: ~/virtualenvs
+          virtualenvs-in-project: true
+          virtualenvs-path: .vegit nv
 
       - name: Install dependencies
         run: poetry install
