@@ -27,3 +27,6 @@ jobs:
 
       - name: Ruff
         run: poetry run ruff check
+
+      - name: Mypy
+        run: poetry run mypy --install-types --check-untyped-defs --non-interactive .
