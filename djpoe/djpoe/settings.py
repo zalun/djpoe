@@ -10,10 +10,14 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 from pathlib import Path
+from urllib.parse import urlparse
 
 import environ
 
-env = environ.FileAwareEnv(DEBUG=(bool, False))
+env = environ.FileAwareEnv(
+    DEBUG=(bool, False),
+    DATABASE_URL=(str, "sqlite"),
+)
 environ.Env.read_env()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -78,14 +82,28 @@ WSGI_APPLICATION = "djpoe.wsgi.application"
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
+DATABASE_URL = env("DATABASE_URL")
 
-DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
+if DATABASE_URL == "sqlite":
+    DATABASES = {
+        "default": {
+            "ENGINE": "django.db.backends.sqlite3",
+            "NAME": BASE_DIR / "db.sqlite3",
+        }
     }
-}
-
+else:
+    db_config = urlparse(DATABASE_URL)
+    DATABASES = {
+        "default": {
+            "ENGINE": "django.db.backends.postgresql_psycopg2",
+            "NAME": db_config.path[1:],
+            "USER": db_config.username,
+            "PASSWORD": db_config.password,
+            "HOST": db_config.hostname,
+            "PORT": db_config.port,
+            "OPTIONS": {"sslmode": "require"},
+        }
+    }
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
