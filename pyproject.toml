@@ -11,6 +11,7 @@ django = "^5.0.6"
 django-extensions = "^3.2.3"
 django-stubs-ext = "^5.0.2"
 django-types = "^0.19.1"
+gunicorn = "^22.0.0"
 
 
 [tool.poetry.group.dev.dependencies]
