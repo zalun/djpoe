@@ -146,11 +146,11 @@ cmd = "python ./djpoe/manage.py runserver 127.0.0.1:8001"
 
 [tool.poe.tasks.makemigrations]
 help = "Generate new migrations."
-cmd = "python ./genogram_site/manage.py makemigrations"
+cmd = "python ./djpoe/manage.py makemigrations"
 
 [tool.poe.tasks.migrate]
 help = "Migrate existing migrations."
-cmd = "python ./genogram_site/manage.py migrate"
+cmd = "python ./djpoe/manage.py migrate"
 
 [tool.poe.tasks.manage]
-cmd = "python ./genogram_site/manage.py"
+cmd = "python ./djpoe/manage.py"
