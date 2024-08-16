@@ -110,16 +110,15 @@ per-file-ignores = """
     models.py:too-many-ancestors
     manage.py:import-outside-toplevel
 """
+django-settings-module = "djpoe.djpoe.settings"
+init-hook = 'import sys; sys.path.append("./djpoe")'
 
 [tool.mypy]
 plugins = "mypy_django_plugin.main"
 mypy_path = "./djpoe"
 
-[tool.myoy.mypy-environ]
-ignore_missing_imports = true
-
 [tool.django-stubs]
-django_settings_module = "djpoe.settings"
+django_settings_module = "djpoe.djpoe.settings"
 ignore_missing_model_attributes = true
 
 [tool.coverage.run]
