@@ -39,7 +39,9 @@ jobs:
         run: poetry run ruff check
 
       - name: Mypy
-        run: poetry run mypy --install-types --check-untyped-defs --non-interactive  --cache-dir=.venv/mypy_cache/ .
+        run: |
+          mkdir .venv/mypy_cache
+          poetry run mypy --install-types --check-untyped-defs --non-interactive  --cache-dir=.venv/mypy_cache/ .
 
       - name: Pytest
         run: poetry run pytest --showlocals --tb=auto -ra --cov-branch --cov-report=term-missing --cov-fail-under=95
