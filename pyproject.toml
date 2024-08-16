@@ -115,6 +115,9 @@ per-file-ignores = """
 plugins = "mypy_django_plugin.main"
 mypy_path = "./djpoe"
 
+[tool.myoy.mypy-environ]
+ignore_missing_imports = true
+
 [tool.django-stubs]
 django_settings_module = "djpoe.settings"
 ignore_missing_model_attributes = true
