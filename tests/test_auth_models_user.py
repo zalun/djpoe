@@ -3,7 +3,7 @@ import pytest
 from django.contrib.auth.models import User
 
 
-@pytest.mark.django_db()
+@pytest.mark.django_db
 def test_user_create(django_user_model: User):
     django_user_model.objects.create_user("john", password="pass1234")
 

@@ -97,6 +97,9 @@ line-ending = "auto"
 docstring-code-format = true
 docstring-code-line-length = "dynamic"
 
+[tool.ruff.lint.flake8-pytest-style]
+mark-parentheses = false
+
 [tool.pylint.'MESSAGES CONTROL']
 max-line-length = 120
 disable = ["fixme", "too-many-arguments"]

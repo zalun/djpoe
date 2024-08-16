@@ -3,7 +3,7 @@ import pytest
 from django.test import Client
 
 
-@pytest.mark.django_db()
+@pytest.mark.django_db
 def test_helloworld_page(client: Client):
     response = client.get("/")
 
