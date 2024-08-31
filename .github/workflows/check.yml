@@ -49,5 +49,5 @@ jobs:
 
       - name: Mypy
         run: |
-          mkdir .venv/mypy_cache
+          mkdir -p .venv/mypy_cache
           poetry run mypy --install-types --check-untyped-defs --non-interactive  --cache-dir=.venv/mypy_cache/ .
