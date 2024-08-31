@@ -12,11 +12,12 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 from pathlib import Path
 from urllib.parse import urlparse
 
-import environ
+import environ  # type: ignore[import-untyped]
 
 env = environ.FileAwareEnv(
     DEBUG=(bool, False),
     DATABASE_URL=(str, "sqlite"),
+    SECRET_KEY=(str),
 )
 environ.Env.read_env()
 
@@ -28,7 +29,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure-=@ek@$wwm7-#ee!r7##h2t@w0e306y4u3v4-8pdt*(8kqq5+b)"
+SECRET_KEY = env("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env("DEBUG")

@@ -13,6 +13,7 @@ The system uses the following environment variables:
 
 * `DEBUG` - Is the server in debug mode (default: `False`)
 * `DATABASE_URL` - Postgresql database URL (default: `"sqlite"`)
+* `SECRET_KEY` - A random string unique per installation (required)
 
 To run it locally call `poe dev` and navigate to the http://127.0.0.1:8001
 
