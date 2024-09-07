@@ -154,3 +154,7 @@ cmd = "python ./djpoe/manage.py migrate"
 
 [tool.poe.tasks.manage]
 cmd = "python ./djpoe/manage.py"
+
+[tool.poe.tasks.find_updates]
+shell = "poetry show --outdated | grep --file=<(poetry show --tree | grep '^\\w' | sed 's/^\\([^ ]*\\).*/^\\1/')"
+interpreter = "bash"
