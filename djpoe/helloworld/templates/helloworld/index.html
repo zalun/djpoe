@@ -1,0 +1,21 @@
+{# djpoe/helloworld/templates/helloworld/index.html #}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello, World!</title>
+</head>
+<body>
+    <h1>Hello, World!</h1>
+    {% if user.is_authenticated %}
+        <p>Welcome, {{ user.username }}!</p>
+        <a href="{% url 'account_logout' %}">Logout</a>
+    {% else %}
+        <p>Welcome, guest!</p>
+        <a href="{% url 'account_login' %}">Login</a>
+        <a href="{% url 'account_signup' %}">Sign Up</a>
+    {% endif %}
+    <p>This is a simple Django template from the helloworld app.</p>
+</body>
+</html>

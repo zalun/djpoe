@@ -2,8 +2,9 @@
 """Views for the helloworld app."""
 
 from django.http import HttpRequest, HttpResponse
+from django.shortcuts import render
 
 
-def index(_: HttpRequest) -> HttpResponse:
+def index(request: HttpRequest) -> HttpResponse:
     """Return a simple greeting."""
-    return HttpResponse("Hello, World!")
+    return render(request, "helloworld/index.html")

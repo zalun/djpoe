@@ -18,6 +18,14 @@ env = environ.FileAwareEnv(
     DEBUG=(bool, False),
     DATABASE_URL=(str, "sqlite"),
     SECRET_KEY=(str),
+    # django-allauth regular account settings
+    ACCOUNT_AUTHENTICATION_METHOD=(str, "email"),
+    ACCOUNT_EMAIL_REQUIRED=(bool, True),
+    ACCOUNT_CONFIRM_EMAIL_ON_GET=(bool, True),
+    ACCOUNT_EMAIL_VERIFICATION=(str, "mandatory"),
+    ACCOUNT_EMAIL_NOTIFICATIONS=(bool, True),
+    ACCOUNT_PRESERVE_USERNAME_CASING=(bool, False),
+    LOGIN_REDIRECT_URL=(str, "/accounts/profile/"),
 )
 environ.Env.read_env()
 
@@ -47,6 +55,8 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "django_extensions",
+    "allauth",
+    "allauth.account",
     "helloworld",
 ]
 
@@ -58,6 +68,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "allauth.account.middleware.AccountMiddleware",
 ]
 
 ROOT_URLCONF = "djpoe.urls"
@@ -124,18 +135,13 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/5.0/topics/i18n/
 
 LANGUAGE_CODE = "en-us"
-
 TIME_ZONE = "UTC"
-
 USE_I18N = True
-
 USE_TZ = True
-
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
@@ -148,3 +154,19 @@ STATICFILES_DIRS = (Path(BASE_DIR).joinpath("static"),)
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+# django-allauth regular account settings
+ACCOUNT_AUTHENTICATION_METHOD = env("ACCOUNT_AUTHENTICATION_METHOD")
+ACCOUNT_EMAIL_REQUIRED = env("ACCOUNT_EMAIL_REQUIRED")
+ACCOUNT_CONFIRM_EMAIL_ON_GET = env("ACCOUNT_CONFIRM_EMAIL_ON_GET")
+ACCOUNT_EMAIL_VERIFICATION = env("ACCOUNT_EMAIL_VERIFICATION")
+ACCOUNT_EMAIL_NOTIFICATIONS = env("ACCOUNT_EMAIL_NOTIFICATIONS")
+ACCOUNT_PRESERVE_USERNAME_CASING = env("ACCOUNT_PRESERVE_USERNAME_CASING")
+LOGIN_REDIRECT_URL = env("LOGIN_REDIRECT_URL")
+
+AUTHENTICATION_BACKENDS = [
+    # Needed to login by username in Django admin, regardless of `allauth`
+    "django.contrib.auth.backends.ModelBackend",
+    # `allauth` specific authentication methods, such as login by email
+    "allauth.account.auth_backends.AuthenticationBackend",
+]

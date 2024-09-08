@@ -14,6 +14,7 @@ django-types = "^0.19.1"
 gunicorn = "^23.0.0"
 django-environ = "^0.11.2"
 psycopg2-binary = "^2.9.9"
+django-allauth = "^64.2.1"
 
 
 [tool.poetry.group.dev.dependencies]
