@@ -207,19 +207,19 @@ Django = ">=3.2"
 
 [[package]]
 name = "django-stubs"
-version = "5.0.4"
+version = "5.0.3"
 description = "Mypy stubs for Django"
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "django_stubs-5.0.4-py3-none-any.whl", hash = "sha256:c2502f5ecbae50c68f9a86d52b5b2447d8648fd205036dad0ccb41e19a445927"},
-    {file = "django_stubs-5.0.4.tar.gz", hash = "sha256:78e3764488fdfd2695f12502136548ec22f8d4b1780541a835042b8238d11514"},
+    {file = "django_stubs-5.0.3-py3-none-any.whl", hash = "sha256:323edab16884d58612e4aaf8664513e4eaa14ec76bb30a77e3affd48ccb1e832"},
+    {file = "django_stubs-5.0.3.tar.gz", hash = "sha256:f12d26a8f60d07398d4f160daef153cdb5f6e30b31ad3a6a15d04fbda86f10dc"},
 ]
 
 [package.dependencies]
 asgiref = "*"
 django = "*"
-django-stubs-ext = ">=5.0.4"
+django-stubs-ext = ">=5.0.3"
 types-PyYAML = "*"
 typing-extensions = ">=4.11.0"
 
@@ -745,4 +745,4 @@ files = [
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.12"
-content-hash = "bbe70b7b9f815b7be49a1a4de5ac5484b2ab08dc0ea03d0dca127f4d30cb55ab"
+content-hash = "f17e2ec99867ea570011bc7c4e4dd9f66343e222e7af063ecddb2d456b452771"
