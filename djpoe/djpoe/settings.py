@@ -19,6 +19,11 @@ env = environ.FileAwareEnv(
     ACCOUNT_EMAIL_NOTIFICATIONS=(bool, True),
     ACCOUNT_PRESERVE_USERNAME_CASING=(bool, False),
     LOGIN_REDIRECT_URL=(str, "/accounts/profile/"),
+    # django-allauth social account settings
+    SOCIALACCOUNT_EMAIL_AUTHENTICATION_AUTO_CONNECT=(bool, True),
+    SOCIALACCOUNT_ONLY=(bool, False),
+    GOOGLE_AUTH_CLIENT_ID=(str, ""),
+    GOOGLE_AUTH_CLIENT_SECRET=(str, ""),
 )
 
 env.read_env()
@@ -39,6 +44,8 @@ INSTALLED_APPS = [
     "django_extensions",
     "allauth",
     "allauth.account",
+    "allauth.socialaccount",
+    "allauth.socialaccount.providers.google",
     "helloworld",
 ]
 
@@ -128,3 +135,26 @@ AUTHENTICATION_BACKENDS = [
     # `allauth` specific authentication methods, such as login by email
     "allauth.account.auth_backends.AuthenticationBackend",
 ]
+
+# django-allauth social account settings
+
+# Should the existing account be automatically recognized as social account
+SOCIALACCOUNT_EMAIL_AUTHENTICATION_AUTO_CONNECT = env("SOCIALACCOUNT_EMAIL_AUTHENTICATION_AUTO_CONNECT")
+# Should regular accounts login be allowed.
+SOCIALACCOUNT_ONLY = env("SOCIALACCOUNT_ONLY")
+SOCIALACCOUNT_PROVIDERS = {
+    "google": {
+        "APP": {
+            "client_id": env("GOOGLE_AUTH_CLIENT_ID"),
+            "secret": env("GOOGLE_AUTH_CLIENT_SECRET"),
+        },
+        "scope": ["profile", "email"],
+        # Authenticate with google even if account exists without connection to social account
+        "EMAIL_AUTHENTICATION": True,
+        "AUTH_PARAMS": {
+            "access_type": "online",
+        },
+        "OAUTH_PKCE_ENABLED": True,
+        "FETCH_USERINFO": True,
+    }
+}
