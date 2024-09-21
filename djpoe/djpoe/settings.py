@@ -2,7 +2,7 @@
 
 from pathlib import Path
 
-import environ  # type: ignore[import-untyped]
+import environ
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -35,6 +35,7 @@ ALLOWED_HOSTS: list[str] = ["*"]
 
 # Application definition
 INSTALLED_APPS = [
+    "home",
     # Wagtail
     "wagtail.contrib.forms",
     "wagtail.contrib.redirects",

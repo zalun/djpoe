@@ -160,3 +160,7 @@ cmd = "python ./djpoe/manage.py"
 [tool.poe.tasks.find_updates]
 shell = "poetry show --outdated | grep --file=<(poetry show --tree | grep '^\\w' | sed 's/^\\([^ ]*\\).*/^\\1/')"
 interpreter = "bash"
+
+[[tool.mypy.overrides]]
+module = "wagtail.*,environ.*"
+ignore_missing_imports = true
