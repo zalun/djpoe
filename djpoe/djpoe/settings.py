@@ -35,7 +35,6 @@ ALLOWED_HOSTS: list[str] = ["*"]
 
 # Application definition
 INSTALLED_APPS = [
-    "helloworld",
     # Wagtail
     "wagtail.contrib.forms",
     "wagtail.contrib.redirects",

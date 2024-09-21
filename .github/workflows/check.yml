@@ -43,7 +43,7 @@ jobs:
         run: poetry run ruff check
 
       - name: Pylint
-        run: poetry run pylint tests djpoe/djpoe djpoe/helloworld
+        run: poetry run pylint tests djpoe/djpoe
 
       - name: Pytest
         run: poetry run pytest --showlocals --tb=auto -ra --cov-branch --cov-report=term-missing --cov-fail-under=95
