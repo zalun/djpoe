@@ -169,5 +169,5 @@ shell = "poetry show --outdated | grep --file=<(poetry show --tree | grep '^\\w'
 interpreter = "bash"
 
 [[tool.mypy.overrides]]
-module = "wagtail.*,environ.*"
+module = "wagtail.*,environ.*,debug_toolbar.*"
 ignore_missing_imports = true
