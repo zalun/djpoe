@@ -59,7 +59,7 @@ cover/
 
 # Django stuff:
 *.log
-local_settings.py
+local_ s.py
 db.sqlite3
 db.sqlite3-journal
 
@@ -163,5 +163,4 @@ cython_debug/
 staticfiles
 
 # Wagtail image content
-media/images/
-media/original_images/
+media/

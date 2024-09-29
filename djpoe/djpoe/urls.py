@@ -18,10 +18,11 @@ Including another URLconf
 
 """
 
+from debug_toolbar.toolbar import debug_toolbar_urls
 from django.conf import settings
-from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import include, path, re_path
+from django.views.static import serve
 from wagtail import urls as wagtail_urls
 from wagtail.admin import urls as wagtailadmin_urls
 
@@ -33,9 +34,11 @@ urlpatterns = [
     # django-allauth
     path("accounts/", include("allauth.urls")),
     # TODO: Put your app's urls here
+    # Media and static files
+    re_path(r"^media/(?P<path>.*)$", serve, {"document_root": settings.MEDIA_ROOT}),
+    re_path(r"^static/(?P<path>.*)$", serve, {"document_root": settings.STATIC_ROOT}),
+    *debug_toolbar_urls(),
     # For anything not caught by a more specific rule above, hand over to
     # Wagtail's serving mechanism
     re_path(r"", include(wagtail_urls)),
-    *static(settings.STATIC_URL, document_root=settings.STATIC_ROOT),
-    *static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT),
 ]

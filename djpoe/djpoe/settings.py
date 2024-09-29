@@ -35,8 +35,11 @@ env.read_env()
 SECRET_KEY = env("SECRET_KEY")
 DEBUG = env("DEBUG")
 
-ALLOWED_HOSTS: list[str] = ["*"]
+ALLOWED_HOSTS = ["*"]
 
+INTERNAL_IPS = [
+    "127.0.0.1",
+]
 # Application definition
 INSTALLED_APPS = [
     "home",
@@ -68,6 +71,8 @@ INSTALLED_APPS = [
     "allauth.account",
     "allauth.socialaccount",
     "allauth.socialaccount.providers.google",
+    # debug
+    "debug_toolbar",
 ]
 
 MIDDLEWARE = [
@@ -82,6 +87,8 @@ MIDDLEWARE = [
     "allauth.account.middleware.AccountMiddleware",
     # Wagtail
     "wagtail.contrib.redirects.middleware.RedirectMiddleware",
+    # debug
+    "debug_toolbar.middleware.DebugToolbarMiddleware",
 ]
 
 ROOT_URLCONF = "djpoe.urls"
@@ -136,9 +143,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
 STATIC_URL = "/static/"
-STATIC_ROOT = Path(BASE_DIR).joinpath("staticfiles")
-STATICFILES_DIRS = (Path(BASE_DIR).joinpath("static"),)
-MEDIA_ROOT = Path(BASE_DIR).joinpath("media")
+STATIC_ROOT = BASE_DIR / "staticfiles"
+STATICFILES_DIRS = (BASE_DIR / "static",)
+MEDIA_ROOT = BASE_DIR / "media"
 MEDIA_URL = "/media/"
 
 # Default primary key field type

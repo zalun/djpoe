@@ -16,6 +16,7 @@ django-allauth = { extras = ["google", "socialaccount"], version = "^65.0" }
 wagtail = "^6.2"
 
 
+django-debug-toolbar = "^4.4.6"
 [tool.poetry.group.dev.dependencies]
 pytest-django = "^4.9"
 ruff = "^0.6"
