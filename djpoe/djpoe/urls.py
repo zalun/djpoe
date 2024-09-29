@@ -18,22 +18,23 @@ Including another URLconf
 
 """
 
+from django.conf import settings
+from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import include, path, re_path
 from wagtail import urls as wagtail_urls
 from wagtail.admin import urls as wagtailadmin_urls
-from wagtail.documents import urls as wagtaildocs_urls
 
 urlpatterns = [
     # modified admin path to avoid conflict with wagtail
     path("django-admin/", admin.site.urls),
     # wagtail admin
     path("admin/", include(wagtailadmin_urls)),
-    path("documents/", include(wagtaildocs_urls)),
     # django-allauth
     path("accounts/", include("allauth.urls")),
     # TODO: Put your app's urls here
     # For anything not caught by a more specific rule above, hand over to
     # Wagtail's serving mechanism
     re_path(r"", include(wagtail_urls)),
+    *static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT),
 ]

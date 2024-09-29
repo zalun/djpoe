@@ -161,3 +161,7 @@ cython_debug/
 .envrc
 .DS_Store
 staticfiles
+
+# Wagtail image content
+images/
+original_images/
