@@ -138,6 +138,8 @@ USE_TZ = True
 STATIC_URL = "/static/"
 STATIC_ROOT = Path(BASE_DIR).joinpath("staticfiles")
 STATICFILES_DIRS = (Path(BASE_DIR).joinpath("static"),)
+MEDIA_ROOT = Path(BASE_DIR).joinpath("media")
+MEDIA_URL = "/media/"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
@@ -213,3 +215,5 @@ WAGTAILDOCS_EXTENSIONS = ["csv", "docx", "key", "odt", "pdf", "pptx", "rtf", "tx
 
 # Reverse the default case-sensitive handling of tags
 TAGGIT_CASE_INSENSITIVE = True
+
+WAGTAILADMIN_LOGIN_URL = "/accounts/login/"

@@ -163,5 +163,5 @@ cython_debug/
 staticfiles
 
 # Wagtail image content
-images/
-original_images/
+media/images/
+media/original_images/
