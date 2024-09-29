@@ -24,6 +24,10 @@ env = environ.FileAwareEnv(
     SOCIALACCOUNT_ONLY=(bool, False),
     GOOGLE_AUTH_CLIENT_ID=(str, ""),
     GOOGLE_AUTH_CLIENT_SECRET=(str, ""),
+    WAGTAIL_SITE_NAME=(str, "DJPoe"),
+    WAGTAILADMIN_BASE_URL=(str, "http://localhost:8001"),
+    WAGTAILADMIN_NOTIFICATION_USE_HTML=(bool, True),
+    DEFAULT_FROM_EMAIL=(str, "email@example.com"),
 )
 
 env.read_env()
@@ -184,8 +188,9 @@ SOCIALACCOUNT_PROVIDERS = {
 
 # This is the human-readable name of your Wagtail install
 # which welcomes users upon login to the Wagtail admin.
-WAGTAIL_SITE_NAME = "My Project"
-
+WAGTAIL_SITE_NAME = env("WAGTAIL_SITE_NAME")
+# This should be the base URL used to access the Wagtail admin site.
+WAGTAILADMIN_BASE_URL = env("WAGTAILADMIN_BASE_URL")
 # Replace the search backend
 # WAGTAILSEARCH_BACKENDS = {
 #  'default': {
@@ -194,11 +199,11 @@ WAGTAIL_SITE_NAME = "My Project"
 #  }
 # }
 
-# Wagtail email notifications from address
-# WAGTAILADMIN_NOTIFICATION_FROM_EMAIL = 'wagtail@myhost.io'
+# Wagtail email notifications uses DEFAULT_FROM_EMAIL
+DEFAULT_FROM_EMAIL = env("DEFAULT_FROM_EMAIL")
 
 # Wagtail email notification format
-# WAGTAILADMIN_NOTIFICATION_USE_HTML = True
+WAGTAILADMIN_NOTIFICATION_USE_HTML = env("WAGTAILADMIN_NOTIFICATION_USE_HTML")
 
 # Allowed file extensions for documents in the document library.
 # This can be omitted to allow all files, but note that this may present a security risk

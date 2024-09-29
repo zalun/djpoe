@@ -1,0 +1,49 @@
+[
+{
+  "model": "wagtailcore.locale",
+  "pk": 1,
+  "fields": {
+    "language_code": "en"
+  }
+},
+{
+  "model": "wagtailcore.site",
+  "pk": 1,
+  "fields": {
+    "hostname": "localhost",
+    "port": 8001,
+    "site_name": "",
+    "root_page": 2,
+    "is_default_site": true
+  }
+},
+{
+  "model": "wagtailcore.page",
+  "pk": 2,
+  "fields": {
+    "path": "00010002",
+    "depth": 2,
+    "numchild": 0,
+    "locale": 1,
+    "live": true,
+    "title": "DJPoe HomePage",
+    "draft_title": "DJPoe HomePage",
+    "slug": "the-new-homepage",
+    "content_type": [
+      "home",
+      "homepage"
+    ],
+    "url_path": "/the-new-homepage/",
+    "seo_title": "",
+    "show_in_menus": false
+  }
+},
+{
+  "model": "home.homepage",
+  "pk": 2,
+  "fields": {
+    "page_ptr": 2,
+    "body": "<h2 data-block-key=\"bdss1\">DJPoe - boilerplate for side projects</h2><p data-block-key=\"eases\"><a href=\"https://github.com/zalun/djpoe\">https://github.com/zalun/djpoe</a></p>"
+  }
+}
+]
