@@ -45,6 +45,7 @@ exclude = [
     ".venv",
     ".vscode",
     "node_modules",
+    "migrations",
 ]
 line-length = 120
 indent-width = 4
