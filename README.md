@@ -17,14 +17,18 @@ The system uses the following environment variables. Some of them are required.
 
 * `DEBUG` - Is the server in debug mode (default: `False`)
 * `DATABASE_URL` - Ddatabase URL (default: `"sqlite:///djpoe/db.sqlite3"`)
-* `SECRET_KEY` - A random string unique per installation (required)
+* `SECRET_KEY` - A random string unique per installation (**required**)
 * `ACCOUNT_AUTHENTICATION_METHOD` - (default: `"email"`)
 * `ACCOUNT_EMAIL_REQUIRED` - (default: `True`)
-* `GOOGLE_AUTH_CLIENT_ID` - Google OAuth client ID (required)
-* `GOOGLE_AUTH_CLIENT_SECRET` - Google OAuth client secret (required)
+* `GOOGLE_AUTH_CLIENT_ID` - Google OAuth client ID (**required**)
+* `GOOGLE_AUTH_CLIENT_SECRET` - Google OAuth client secret (**required**)
 * `WAGTAIL_SITE_NAME` - Name used in the CMS (deefault: `"DJPoe"`)
 * `WAGTAILADMIN_BASE_URL` - URL used in Wagtail notifications (default: `"http://localhost:8001"`)
 * `DEFAULT_FROM_EMAIL` - Email used as author of Django emails (default: `"email@example.com"`)
+* `AWS_BUCKET_NAME` - Bucket name for the media storage (**required**)
+* `AWS_REGION_NAME` - AWS region name for the media storage (**required**)
+* `AWS_ACCESS_KEY` - AWS access key for the media storage (**required**)
+* `AWS_SECRET_KEY` - AWS secret key for the media storage (**required**)
 
 ### Migrate the database
 

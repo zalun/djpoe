@@ -17,6 +17,7 @@ wagtail = "^6.2"
 
 
 django-debug-toolbar = "^4.4.6"
+django-storages = {extras = ["s3"], version = "^1.14.4"}
 [tool.poetry.group.dev.dependencies]
 pytest-django = "^4.9"
 ruff = "^0.6"

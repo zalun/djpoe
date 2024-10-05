@@ -1,3 +1,4 @@
+# djpoe/djpoe/settings.py
 """Django settings for djpoe project."""
 
 from pathlib import Path
@@ -28,6 +29,10 @@ env = environ.FileAwareEnv(
     WAGTAILADMIN_BASE_URL=(str, "http://localhost:8001"),
     WAGTAILADMIN_NOTIFICATION_USE_HTML=(bool, True),
     DEFAULT_FROM_EMAIL=(str, "email@example.com"),
+    AWS_BUCKET_NAME=(str, ""),
+    AWS_REGION_NAME=(str, ""),
+    AWS_ACCESS_KEY=(str, ""),
+    AWS_SECRET_KEY=(str, ""),
 )
 
 env.read_env()
@@ -73,6 +78,8 @@ INSTALLED_APPS = [
     "allauth.socialaccount.providers.google",
     # debug
     "debug_toolbar",
+    # S3 Srorage
+    "storages",
 ]
 
 MIDDLEWARE = [
@@ -224,3 +231,20 @@ WAGTAILDOCS_EXTENSIONS = ["csv", "docx", "key", "odt", "pdf", "pptx", "rtf", "tx
 TAGGIT_CASE_INSENSITIVE = True
 
 WAGTAILADMIN_LOGIN_URL = "/accounts/login/"
+
+# Storage
+STORAGES = {
+    "default": {
+        "BACKEND": "storages.backends.s3.S3Storage",
+        "OPTIONS": {
+            "bucket_name": env("AWS_BUCKET_NAME"),
+            "region_name": env("AWS_REGION_NAME"),
+            "access_key": env("AWS_ACCESS_KEY"),
+            "secret_key": env("AWS_SECRET_KEY"),
+            "default_acl": "public-read",
+        },
+    },
+    "staticfiles": {
+        "BACKEND": "django.contrib.staticfiles.storage.StaticFilesStorage",
+    },
+}

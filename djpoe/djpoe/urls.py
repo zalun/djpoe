@@ -42,4 +42,3 @@ urlpatterns = [
     # Wagtail's serving mechanism
     re_path(r"", include(wagtail_urls)),
 ]
-print(f"{urlpatterns=}")
