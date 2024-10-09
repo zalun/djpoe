@@ -179,7 +179,7 @@ def push_to_repository(git_repo: str, debug: bool) -> None:
 @click.option("--git-repo", prompt="Enter git repository URL", help="URL of the git repository")
 def customize_project(
     project_name: str, author_name: str, author_email: str, git_repo: str, debug: bool, default: bool, yes: bool
-) -> str:
+) -> None:
     """Customize the djpoe project and push to a new repository."""
     if debug:
         logger.setLevel(logging.DEBUG)
@@ -204,13 +204,14 @@ def customize_project(
     replace_strings(project_name, app_name, author_name, author_email, debug)
 
     if not git_repo:
-        return app_name
+        print(f"\n{app_name}")
+        return
 
     initialize_repository(git_repo, debug)
-    if yes or click.confirm("Do you want to push the changes to the remote repository?", abort=True):
+    if yes or click.confirm("Do you want to push the changes to the remote repository?"):
         push_to_repository(git_repo, debug)
 
-    return app_name
+    print(f"\n{app_name}")
 
 
 if __name__ == "__main__":
