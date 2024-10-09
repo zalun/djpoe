@@ -1,6 +1,12 @@
 # Boilerplate Django project
 
-Code is written for a series of articles:
+## Home
+
+<https://djpoe.com>
+
+## Articles
+
+Development of DJPoe is accompanied by a series of in-depth articles, providing step-by-step explanations of each feature integration and the rationale behind design decisions. These articles serve as both documentation and a learning resource for developers looking to understand the intricacies of building a robust Django application.
 
 1. ["Django with Poetry"](https://medium.com/@zalun/django-with-poetry-ea95bd5083f7)
 2. ["Linting Django"](https://medium.com/django-unleashed/linting-django-9878c7ed8feb)
@@ -8,8 +14,15 @@ Code is written for a series of articles:
 4. ["Deploy Django on DigitalOcean"](https://medium.com/@zalun/4-deploy-django-on-digitalocean-dc4b713e52c2)
 5. ["3rd party authentication in Django"](https://medium.com/@zalun/base-5-3rd-party-authentication-in-django-887cad242a38)
 6. ["Wagtail CMS for the content"](https://medium.com/@zalun/base-6-wagtail-cms-for-the-content-f60d8ec7ac9e)
+7. ["Customizing DJPoe: A Script for Rapid Django Project Initialization"](https://medium.com/@zalun/customizing-djpoe-a-script-for-rapid-django-project-initialization-bb897eaf4bd7)
 
 ## Installation
+
+### Morph into your project
+
+```bash
+sh <(curl -sSL https://raw.githubusercontent.com/zalun/djpoe/refs/heads/main/scripts/install.sh)
+```
 
 ### Set variables
 
