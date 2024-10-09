@@ -14,10 +14,9 @@ django-environ = "^0.11.2"
 psycopg2-binary = "^2.9.9"
 django-allauth = { extras = ["google", "socialaccount"], version = "^65.0" }
 wagtail = "^6.2"
-
-
 django-debug-toolbar = "^4.4.6"
-django-storages = {extras = ["s3"], version = "^1.14.4"}
+django-storages = { extras = ["s3"], version = "^1.14.4" }
+
 [tool.poetry.group.dev.dependencies]
 pytest-django = "^4.9"
 ruff = "^0.6"
@@ -30,6 +29,8 @@ pytest-coverage = "^0.0"
 django-stubs-ext = "^5"
 django-types = "^0.19"
 pytest = "^8.3"
+click = "^8.1.7"
+colorama = "^0.4.6"
 
 [build-system]
 requires = ["poetry-core"]
@@ -160,7 +161,6 @@ cmd = "python ./djpoe/manage.py migrate"
 [tool.poe.tasks.manage]
 cmd = "python ./djpoe/manage.py"
 
-
 [tool.poe.tasks.requirements]
 help = "Export requirements to requirements.txt."
 cmd = "poetry export --format requirements.txt --output requirements.txt --without-hashes"
@@ -168,6 +168,9 @@ cmd = "poetry export --format requirements.txt --output requirements.txt --witho
 [tool.poe.tasks.find_updates]
 shell = "poetry show --outdated | grep --file=<(poetry show --tree | grep '^\\w' | sed 's/^\\([^ ]*\\).*/^\\1/')"
 interpreter = "bash"
+
+[tool.poe.tasks.customize]
+cmd = "python ./scripts/customize.py"
 
 [[tool.mypy.overrides]]
 module = "wagtail.*,environ.*,debug_toolbar.*"
