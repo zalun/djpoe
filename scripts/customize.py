@@ -77,7 +77,7 @@ def replace_strings(
         ".",
         [".venv", ".git", "scripts", ".mypy_cache", ".pytest_cache", "test_home.py"],
         ["djpoe", "piotr", "zaloon@gmail.com"],
-        [".py", ".md", ".ini", ".yml", ".toml", ".yaml"],
+        [".py", ".ini", ".yml", ".toml", ".yaml"],
         debug,
     )
 
