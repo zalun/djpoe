@@ -7,7 +7,7 @@ fi
 
 git clone https://github.com/zalun/djpoe.git djpoe-installation
 cd djpoe-installation
-poetry install
+poetry install -q
 
 # Use a temporary file to capture the exit status
 tmp_file=$(mktemp)
@@ -30,7 +30,10 @@ if [ "$exit_status" = "0" ]; then
     echo "Project customized successfully"
     cd ..
     mv djpoe-installation "$app_name"
-
+    cd "$app_name"
+    rm -rf .venv
+    poetry install -q
+    cp "$app_name"/"$app_name"/.env.local "$app_name"/"$app_name"/.env
 else
     echo "Installation failed with exit status $exit_status"
 fi
