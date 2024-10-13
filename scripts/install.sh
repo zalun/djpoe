@@ -32,6 +32,7 @@ if [ "$exit_status" = "0" ]; then
     mv djpoe-installation "$app_name"
     cd "$app_name"
     rm -rf .venv
+    rm scripts/customize.py scripts/install.sh
     poetry install -q
     cp "$app_name"/"$app_name"/.env.local "$app_name"/"$app_name"/.env
 else
